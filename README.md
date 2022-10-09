@@ -1,3 +1,3 @@
-# Next.js + Tailwind CSS 
+# React + Next.js + Tailwind CSS 
 
 This is an Airbnb Clone
