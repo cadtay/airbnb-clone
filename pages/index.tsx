@@ -16,7 +16,6 @@ interface Props {
 }
 
 const Home = ({ exploreData, cardsData }: Props) => {
-  console.log(cardsData)
   return (
     <div className="">
       <Head>
@@ -24,7 +23,7 @@ const Home = ({ exploreData, cardsData }: Props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
+      <Header placeholder='Start your search' />
       <Banner />
 
       <main className='max-w-7xl mx-auto px-8 sm:px-16'>
