@@ -1,11 +1,16 @@
+import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 import React from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+import InfoCard from '../components/InfoCard'
+import { Places } from '../Models/Places'
 
+interface Props {
+    places: Places[] 
+}
 
-
-const Search = () => {
+const Search = ({ places }: Props) => {
     const router = useRouter();
     const { location, startDate, endDate, numberOfGuests } = router.query;
 
@@ -15,7 +20,6 @@ const Search = () => {
 
     return (
         <div>
-            
             <Header placeholder = {`${location} | ${startDate} - ${endDate} | ${numberOfGuests}`}/>
 
             <main className='flex'>
@@ -34,12 +38,38 @@ const Search = () => {
                         <p className='button'>Rooms and Beds</p>
                         <p className='button'>More filters</p>
                     </div>
+                    <div className='flex flex-col'>
+                        {places.map((item, index) => (
+                            <InfoCard 
+                                key={index}
+                                img={item.img}
+                                price={item.price}
+                                location={item.location}
+                                description={item.description}
+                                title={item.title}
+                                star={item.star}
+                                total={item.total} 
+                            />
+                        ))}
+                    </div>
                 </section>
             </main>
 
             <Footer />
         </div>
     )
+}
+
+
+export const getServerSideProps: GetServerSideProps = async () => {
+     const places = await fetch('https://www.jsonkeeper.com/b/5NPS')
+     .then(res => res.json())
+
+    return {
+        props: {
+            places
+        }
+    }
 }
 
 export default Search
