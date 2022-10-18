@@ -16,12 +16,10 @@ interface Props {
 
 const Home = ({ exploreData, cardsData }: Props) => {
   return (
-    <div className="">
+    <div>
       <Head>
-        <title>Airbnb clone</title>
-        <link rel="icon" href="/favicon.ico" />
+      <title>Airbnb clone</title>
       </Head>
-
       <Header placeholder='Start your search' />
       <Banner />
 

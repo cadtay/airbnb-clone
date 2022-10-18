@@ -5,6 +5,7 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import InfoCard from '../components/InfoCard'
 import { Places } from '../Models/Places'
+import PlaceMap from '../components/Map'
 
 interface Props {
     places: Places[] 
@@ -52,6 +53,12 @@ const Search = ({ places }: Props) => {
                             />
                         ))}
                     </div>
+                </section>
+
+                <section className='hidden xl:inline-flex xl:min-w-[600px]'>
+                    <PlaceMap 
+                        places={places}
+                    />
                 </section>
             </main>
 

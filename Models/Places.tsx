@@ -6,6 +6,6 @@ export interface Places {
     star: number,
     price: string,
     total: string,
-    long?: string,
-    lat?: string,
+    long?: number,
+    lat?: number,
 }
